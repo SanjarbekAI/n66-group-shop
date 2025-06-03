@@ -14,10 +14,11 @@ def admin_menu():
     print("""
     1. Add category
     2. Add product
-    3. See products
+    3. Show products
     4. Delete product
-    5. See orders
-    6. Log out
+    5. Show orders
+    6. Change order status
+    7. Log out
     """)
 
     try:
@@ -33,6 +34,8 @@ def admin_menu():
         elif choice == "5":
             pass
         elif choice == "6":
+            pass
+        elif choice == "7":
             return auth_menu()
         else:
             print("Invalid choice!")
