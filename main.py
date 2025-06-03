@@ -1,3 +1,6 @@
+from apps.utils.execute_tables import execute_table_queries
+
+
 def auth_menu():
     "Gavhar"
 
@@ -11,4 +14,5 @@ def admin_menu():
 
 
 if __name__ == '__main__':
+    execute_table_queries()
     auth_menu()
