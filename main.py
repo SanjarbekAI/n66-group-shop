@@ -1,5 +1,3 @@
-from random import choice
-
 from apps.utils.execute_tables import execute_table_queries
 
 
