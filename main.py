@@ -4,6 +4,7 @@ from apps.utils.execute_tables import execute_table_queries
 
 
 def auth_menu():
+   
     print("welcome to the authentication menu!")
     print(" 1 register")
     print(" 2 login")
@@ -21,7 +22,6 @@ def auth_menu():
         exit()
     else:
         print("Invalid choice, please try again.")
-
 
 
 
