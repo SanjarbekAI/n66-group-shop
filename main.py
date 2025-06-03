@@ -2,25 +2,23 @@ from apps.utils.execute_tables import execute_table_queries
 
 
 def auth_menu():
-   
     print("welcome to the authentication menu!")
-    print(" 1 register")
-    print(" 2 login")
-    print(" 3 exit")
-    choice= input("Please choose an option: ")
+    print("1. Register")
+    print("2. Login")
+    print("3. Exit")
+    choice = input("Please choose an option: ")
     if choice == '1':
         pass
-        
-        
+
     elif choice == '2':
         pass
- 
+
     elif choice == '3':
         print("Goodbye!")
         exit()
     else:
         print("Invalid choice, please try again.")
-
+    return auth_menu()
 
 
 def user_menu():
@@ -48,22 +46,21 @@ def user_menu():
     elif choice == "6":
         auth_menu()
     else:
-        print("Invalide choice !!!")
-        user_menu()
-
-
+        print("Invalid choice !!!")
+    user_menu()
 
 
 def admin_menu():
-    "Ulug'bek"
     print("""
     1. Add category
-    2. Add product
-    3. Show products
-    4. Delete product
-    5. Show orders
-    6. Change order status
-    7. Log out
+    2. Show categories
+    3. Delete category
+    4. Add product
+    5. Show products
+    6. Delete product
+    7. Show orders
+    8. Change order status
+    9. Log out
     """)
 
     try:
@@ -81,6 +78,10 @@ def admin_menu():
         elif choice == "6":
             pass
         elif choice == "7":
+            pass
+        elif choice == "8":
+            pass
+        elif choice == "9":
             return auth_menu()
         else:
             print("Invalid choice!")
