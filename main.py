@@ -1,3 +1,4 @@
+from apps.products.query import show_products
 from apps.utils.execute_tables import execute_table_queries
 
 
@@ -34,7 +35,7 @@ def user_menu():
 
     choice = input("Enter your choice: ")
     if choice == "1":
-        pass
+        show_products()
     elif choice == "2":
         pass
     elif choice == "3":
