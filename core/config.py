@@ -1,5 +1,6 @@
 import os
 
+import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv(
@@ -19,3 +20,5 @@ DB_CONFIG = {
     "host": DB_HOST,
     "password": DB_PASS
 }
+def get_connection():
+    return psycopg2.connect(**DB_CONFIG)
