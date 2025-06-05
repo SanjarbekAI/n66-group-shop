@@ -9,28 +9,31 @@ current_user = None
 def auth_menu():
     global current_user
 
-    print("welcome to the authentication menu!")
-    print("1. Register")
-    print("2. Login")
-    print("3. Exit")
-    choice = input("Please choose an option: ")
+    while True:
+        print("\nWelcome to the authentication menu!")
+        print("1. Register")
+        print("2. Login")
+        print("3. Exit")
+        choice = input("Please choose an option: ")
 
-    if choice == '1':
-        register()
-        return auth_menu()
-    elif choice == '2':
-        user = login()
-        if user:
-            current_user = user
-            return admin_menu()
+        if choice == '1':
+            register()
+        elif choice == '2':
+            user = login()
+            if user == "admin":
+                current_user = "admin"
+                return admin_menu()
+            elif user:
+                current_user = user
+                return user_menu()
+            else:
+                continue
+        elif choice == '3':
+            print("Exiting... Goodbye!")
+            exit()
         else:
-            return auth_menu()
-    elif choice == '3':
-        print("Exiting... Goodbye!")
-        exit()
-    else:
-        print("Invalid choice!")
-        return auth_menu()
+            print("Invalid choice. Try again.")
+
 
 
 def user_menu():
