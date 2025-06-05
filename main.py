@@ -2,6 +2,7 @@ from apps.products.query import show_products
 from apps.products.views import add_product, delete_product
 from apps.utils.execute_tables import execute_table_queries
 from apps.users.views import register, login
+from apps.orders.views import show_my_orders
 
 current_user = None
 
@@ -57,7 +58,7 @@ def user_menu():
     elif choice == "4":
         pass
     elif choice == "5":
-        pass
+        show_my_orders()
     elif choice == "6":
         auth_menu()
     else:
