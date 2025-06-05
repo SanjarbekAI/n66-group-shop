@@ -1,13 +1,14 @@
 from apps.products.query import show_products
 from apps.products.views import add_product, delete_product
 from apps.utils.execute_tables import execute_table_queries
-from apps.users.views import register, login, logout
+from apps.users.views import register, login
 
 current_user = None
 
 
 def auth_menu():
     global current_user
+
     print("welcome to the authentication menu!")
     print("1. Register")
     print("2. Login")
@@ -32,19 +33,47 @@ def auth_menu():
         return auth_menu()
 
 
-def admin_menu():
-    global current_user
+def user_menu():
     print("""
-1. Add category
-2. Show categories
-3. Delete category
-4. Add product
-5. Show products
-6. Delete product
-7. Show orders
-8. Change order status
-9. Log out
-""")
+    User_menu:
+        1. View products
+        2. Add to Cart
+        3. View cart
+        4. Ordering
+        5. My orders
+        6. Logout
+    """)
+
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        show_products()
+    elif choice == "2":
+        pass
+    elif choice == "3":
+        pass
+    elif choice == "4":
+        pass
+    elif choice == "5":
+        pass
+    elif choice == "6":
+        auth_menu()
+    else:
+        print("Invalid choice !!!")
+    user_menu()
+
+
+def admin_menu():
+    print("""
+    1. Add category
+    2. Show categories
+    3. Delete category
+    4. Add product
+    5. Show products
+    6. Delete product
+    7. Show orders
+    8. Change order status
+    9. Log out
+    """)
 
     try:
         choice = input("Enter your choice: ")
@@ -65,8 +94,6 @@ def admin_menu():
         elif choice == "8":
             pass
         elif choice == "9":
-            logout(current_user)
-            current_user = None
             return auth_menu()
         else:
             print("Invalid choice!")
