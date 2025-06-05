@@ -1,25 +1,50 @@
+from apps.products.query import show_products
+from apps.products.views import add_product, delete_product
 from apps.utils.execute_tables import execute_table_queries
+from apps.users.views import register, login, logout
+
+current_user = None
 
 
 def auth_menu():
-    "Gavhar"
+    global current_user
+    print("welcome to the authentication menu!")
+    print("1. Register")
+    print("2. Login")
+    print("3. Exit")
+    choice = input("Please choose an option: ")
 
-
-def user_menu():
-    "Javohir"
+    if choice == '1':
+        register()
+        return auth_menu()
+    elif choice == '2':
+        user = login()
+        if user:
+            current_user = user
+            return admin_menu()
+        else:
+            return auth_menu()
+    elif choice == '3':
+        print("Exiting... Goodbye!")
+        exit()
+    else:
+        print("Invalid choice!")
+        return auth_menu()
 
 
 def admin_menu():
-    "Ulug'bek"
+    global current_user
     print("""
-    1. Add category
-    2. Add product
-    3. Show products
-    4. Delete product
-    5. Show orders
-    6. Change order status
-    7. Log out
-    """)
+1. Add category
+2. Show categories
+3. Delete category
+4. Add product
+5. Show products
+6. Delete product
+7. Show orders
+8. Change order status
+9. Log out
+""")
 
     try:
         choice = input("Enter your choice: ")
@@ -30,17 +55,24 @@ def admin_menu():
         elif choice == "3":
             pass
         elif choice == "4":
-            pass
+            add_product()
         elif choice == "5":
-            pass
+            show_products()
         elif choice == "6":
-            pass
+            delete_product()
         elif choice == "7":
+            pass
+        elif choice == "8":
+            pass
+        elif choice == "9":
+            logout(current_user)
+            current_user = None
             return auth_menu()
         else:
             print("Invalid choice!")
     except KeyboardInterrupt:
         print("Good bye")
+
     return admin_menu()
 
 
