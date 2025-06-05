@@ -1,4 +1,5 @@
 from apps.products.query import show_products
+from apps.products.views import add_product, delete_product
 from apps.utils.execute_tables import execute_table_queries
 
 
@@ -73,11 +74,11 @@ def admin_menu():
         elif choice == "3":
             pass
         elif choice == "4":
-            pass
+            add_product()
         elif choice == "5":
-            pass
+            show_products()
         elif choice == "6":
-            pass
+            delete_product()
         elif choice == "7":
             pass
         elif choice == "8":
