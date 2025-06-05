@@ -1,5 +1,8 @@
 from core.database_settings import execute_query
 
+admin_login = "admin"
+admin_password = "admin"
+
 
 def register():
     username = input("Enter username: ")
@@ -24,6 +27,11 @@ def register():
 def login():
     username = input("Enter username: ")
     password = input("Enter password: ")
+
+    if username == admin_login and password == admin_password:
+        print("Admin login successful!")
+        return "admin"
+
     query = "SELECT id FROM users WHERE username = %s AND password = %s;"
     user = execute_query(query=query, params=(username, password), fetch="one")
 
