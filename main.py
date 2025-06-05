@@ -1,26 +1,36 @@
 from apps.products.query import show_products
 from apps.products.views import add_product, delete_product
 from apps.utils.execute_tables import execute_table_queries
+from apps.users.views import register, login
+
+current_user = None
 
 
 def auth_menu():
+    global current_user
+
     print("welcome to the authentication menu!")
     print("1. Register")
     print("2. Login")
     print("3. Exit")
     choice = input("Please choose an option: ")
+
     if choice == '1':
-        pass
-
+        register()
+        return auth_menu()
     elif choice == '2':
-        pass
-
+        user = login()
+        if user:
+            current_user = user
+            return admin_menu()
+        else:
+            return auth_menu()
     elif choice == '3':
-        print("Goodbye!")
+        print("Exiting... Goodbye!")
         exit()
     else:
-        print("Invalid choice, please try again.")
-    return auth_menu()
+        print("Invalid choice!")
+        return auth_menu()
 
 
 def user_menu():
@@ -89,6 +99,7 @@ def admin_menu():
             print("Invalid choice!")
     except KeyboardInterrupt:
         print("Good bye")
+
     return admin_menu()
 
 
